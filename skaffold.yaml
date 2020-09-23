@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2beta7
+kind: Config
+metadata:
+  name: skaffold
+build:
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+  - image: mkarimi20/artemis-skaffold
+deploy:
+  kustomize:
+    paths:
+    - artemis/base
+profiles:
+- name: prod
+  deploy:
+    kustomize:
+      paths:
+      - artemis/overlay/prod

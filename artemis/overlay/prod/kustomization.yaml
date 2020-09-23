@@ -1,0 +1,10 @@
+#apiVersion: kustomize.config.artemis.io/v1beta2
+
+namePrefix: production-
+commonLabels:
+  variant: production
+  org: acmeCorporation
+bases:
+- ../../base
+patchesStrategicMerge:
+- deployment.yaml
